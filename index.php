@@ -1,5 +1,5 @@
 <?php
-function tirarDados($jugador1, $dado) {
+function tirarDados($entrada, $dado) {
         switch ($dado) {
                 case 1:
                         echo "&#9856;";
@@ -22,11 +22,24 @@ function tirarDados($jugador1, $dado) {
         }
 }
 
+function restarDados1($jugador1) {
+        $resta1 =  min($jugador1) + max($jugador1);
+        $resta1 = array_sum($jugador1) - $resta1;
+        return $resta1;
+}
+
+function restarDados2($jugador2) {
+        $resta2 =  min($jugador2) + max($jugador2);
+        $resta2 = array_sum($jugador2) - $resta2;
+        return $resta2;
+}
+ 
+
 function elGanador($jugador1, $jugador2) {
         if (array_sum($jugador1) == array_sum($jugador2)) {
                 echo "¡Empate!";
         } else if (array_sum($jugador1) > array_sum($jugador2)) {
-                echo "¡Gana el jugador 1";
+                echo "¡Gana el jugador 1!";
         } else {
                 echo "¡Gana el jugador 2!";
         }
@@ -59,7 +72,7 @@ function elGanador($jugador1, $jugador2) {
 
                 $entrada = array(0, 1, 2, 3, 4, 5, 6);
                 $dado = 0;
-                $jugador1 = [0, 0, 0, 0, 0, 0];
+
                 for ($i = 0; $i < 6; $i++) {
                         $salidaDado = mt_rand(1, 6);
                         $dado = $entrada[$salidaDado];
@@ -79,10 +92,9 @@ function elGanador($jugador1, $jugador2) {
         </div>
         <div id="resultado">
                 <?php
-                echo "<br> suma jugador 1: " . array_sum($jugador1) . "<br>";
-                echo "suma jugador 2: " . array_sum($jugador2) . "<br><br>";
+                echo "<br> suma jugador 1: " . array_sum($jugador1). " Si resto el dado mayor y el menor: " . restarDados1($jugador1) . "<br>";
+                echo "suma jugador 2: " . array_sum($jugador2) . " Si resto el dado mayor y el menor; " . restarDados2($jugador2) . "<br><br>";
                 elGanador($jugador1, $jugador2);
-
                 ?>
         </div>
 </body>

@@ -85,7 +85,7 @@ function elGanador($jugador1, $jugador2) {
                 <?php
                         $entrada = array(0, 1, 2, 3, 4, 5, 6);
                         $dado = 0;
-
+                        $jugador1 = array();
                         for ($i = 0; $i < 6; $i++) {
                                 $salidaDado = mt_rand(1, 6);
                                 $dado = $entrada[$salidaDado];
@@ -97,7 +97,7 @@ function elGanador($jugador1, $jugador2) {
         <div id="dado-2">
                 <p>Dado jugador 2</p>
                 <?php
-
+                        $jugador2 = array();
                         for ($i = 0; $i < 6; $i++) {
                                 $salidaDado = mt_rand(1, 6);
                                 $dado = $entrada[$salidaDado];

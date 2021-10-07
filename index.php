@@ -114,5 +114,4 @@ function elGanador($jugador1, $jugador2) {
                 ?>
         </div>
 </body>
-
 </html>
